@@ -34,7 +34,6 @@ public class FlightService {
     }
 
     public FlightDto getFlights(FilterFlightsCommandDto flightQuery){
-
-        List<Flight> flights = flightRepository.findBy(Exa)
+        return null;
     }
 }
