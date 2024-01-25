@@ -1,6 +1,5 @@
 package org.fatihprlg.flightsearchapi.scheduled;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
@@ -16,7 +15,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Base64Utils;
 import org.springframework.web.client.RestTemplate;
 
 @Component
@@ -36,8 +34,7 @@ public class UpdateFlights {
         RestTemplate restTemplate = new RestTemplate();
         int count = random.nextInt(15) + 1;
         String requestUrl = localhost + "/api/v1/utils/random/get_flights/" + count;
-        // Temel Kimlik Doğrulama Başlığı Oluşturma
-        String authHeader = createBasicAuthHeader("user", "awesomePassword");
+        String authHeader = createBasicAuthHeader();
         HttpHeaders headers = new HttpHeaders();
         headers.set(HttpHeaders.AUTHORIZATION, authHeader);
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
@@ -59,8 +56,8 @@ public class UpdateFlights {
         }
     }
 
-    private String createBasicAuthHeader(String username, String password) {
-        String authString = username + ":" + password;
+    private String createBasicAuthHeader() {
+        String authString = "user" + ":" + "awesomePassword";
         byte[] authBytes = authString.getBytes(StandardCharsets.UTF_8);
         String encodedAuthString = Base64.getEncoder().encodeToString(authBytes);
         return "Basic " + encodedAuthString;
