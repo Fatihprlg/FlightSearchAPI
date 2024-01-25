@@ -1,14 +1,28 @@
 package org.fatihprlg.flightsearchapi.models.dtos;
 
-import java.util.Date;
-import java.util.Objects;
+import lombok.*;
 
-public record AddFlightCommandDto(Integer departureAirportId, Integer landingAirportId, Date departureTime, Date landingTime, Float price) {
-    public AddFlightCommandDto {
-        Objects.requireNonNull(departureAirportId);
-        Objects.requireNonNull(landingAirportId);
-        Objects.requireNonNull(departureTime);
-        Objects.requireNonNull(landingTime);
-        Objects.requireNonNull(price);
-    }
+import java.sql.Timestamp;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Data
+@Builder
+public class AddFlightCommandDto {
+    @NonNull
+    private Integer departureAirportId;
+
+    @NonNull
+    private Integer landingAirportId;
+
+    @NonNull
+    private Timestamp departureTime;
+
+    private Timestamp returnTime;
+
+    @NonNull
+    private Float price;
 }

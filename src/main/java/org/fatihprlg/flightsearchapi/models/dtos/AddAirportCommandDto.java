@@ -3,15 +3,15 @@ package org.fatihprlg.flightsearchapi.models.dtos;
 import io.micrometer.common.util.StringUtils;
 import lombok.*;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Data
-@NonNull
 @Builder
-public class AirportDto {
-    @Setter
-    private Integer id;
+public class AddAirportCommandDto {
+
+    @NonNull
     private String city;
 
     public void setCity(String city){

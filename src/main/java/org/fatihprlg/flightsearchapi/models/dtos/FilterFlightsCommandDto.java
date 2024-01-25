@@ -1,6 +1,21 @@
 package org.fatihprlg.flightsearchapi.models.dtos;
 
-import java.util.Date;
+import lombok.*;
 
-public record FilterFlightsCommandDto(Integer id, Integer departureAirportId, Integer landingAirportId, Date departureTime, Date landingTime, Float price) {
+import java.sql.Timestamp;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Data
+@Builder
+public class FilterFlightsCommandDto {
+    private Integer id;
+    private Integer departureAirportId;
+    private Integer landingAirportId;
+    private Timestamp departureTime;
+    private Timestamp returnTime;
+    private Float price;
 }
