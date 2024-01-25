@@ -3,8 +3,9 @@ package org.fatihprlg.flightsearchapi.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
+@Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,31 +14,22 @@ import java.util.Date;
 @Table(name = "Flight")
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Setter
-    @Getter
     @Column(name = "departureAirportId")
     private Integer departureAirportId;
     @Setter
-    @Getter
     @Column(name = "landingAirportId")
     private Integer landingAirportId;
     @Setter
-    @Getter
     @Column(name = "departureTime")
-    private Date  departureTime;
+    private Timestamp  departureTime;
     @Setter
-    @Getter
-    @Column(name = "landingTime")
-    private Date  landingTime;
+    @Column(name = "returnTime")
+    private Timestamp returnTime;
     @Setter
-    @Getter
     @Column(name = "price")
     private Float price;
-
-    public int getId() {
-        return id;
-    }
 
 }

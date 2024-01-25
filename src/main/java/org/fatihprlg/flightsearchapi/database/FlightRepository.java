@@ -10,6 +10,4 @@ import java.util.List;
 
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
-    @Query("SELECT f FROM Flight f WHERE f.departureAirportId = :#{#filter.departureAirportId} AND f.landingAirportId = :#{#filter.landingAirportId}")
-    List<Flight> filter(@Param("filter")Flight filter);
 }
