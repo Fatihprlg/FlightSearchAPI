@@ -1,4 +1,5 @@
 Java Spring Boot API for searching and makin CRUD operations on Flights and Airports. Included basic authentication with username: user password: awesomePassword. Has a scheduled task that gets flights and update database at 12.00AM every day from a mock data. Used technologies: Java, Spring Boot, Spring Security, ModelMapper, Spring Data JPA, Awaitility, Spring Boot Test, Maven, Spring Initializr, Spring MVC, MS SQL Database, Rest Controllers, Swagger, Swagger UI.  
+You can use sql/flight_api_db.sql for generate required database. if needed, change url, username and password for datasource in application.properties file. 
 You can find api docs at: http://localhost:8080/v3/api-docs and swagger ui at http://localhost:8080/swagger-ui/index.html
 Swagger Doc:
 ```
