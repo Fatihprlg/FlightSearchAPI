@@ -49,7 +49,7 @@ public class FlightController {
     }
 
     @GetMapping("/get_filtered_flights")
-    public ResponseEntity<List<FlightDto>> getFilteredFlights(@RequestBody FilterFlightsCommandDto filter){
+    public ResponseEntity<List<FlightDto>> getFilteredFlights(FilterFlightsCommandDto filter){
         List<FlightDto> filteredFlights = flightService.getFilteredFlights(filter);
         return ResponseEntity.ok(filteredFlights);
     }

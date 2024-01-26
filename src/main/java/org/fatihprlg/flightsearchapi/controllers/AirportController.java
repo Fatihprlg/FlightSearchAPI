@@ -48,7 +48,7 @@ public class AirportController {
     }
 
     @GetMapping("/get_filtered_airports")
-    public ResponseEntity<List<AirportDto>> getFilteredAirports(@RequestBody FilterAirportsCommandDto filter){
+    public ResponseEntity<List<AirportDto>> getFilteredAirports(FilterAirportsCommandDto filter){
         List<AirportDto> filteredAirports = airportService.getFilteredAirports(filter);
         return ResponseEntity.ok(filteredAirports);
     }

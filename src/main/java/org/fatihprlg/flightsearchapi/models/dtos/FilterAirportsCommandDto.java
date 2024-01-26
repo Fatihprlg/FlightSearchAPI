@@ -1,5 +1,6 @@
 package org.fatihprlg.flightsearchapi.models.dtos;
 
+import jakarta.annotation.Nullable;
 import lombok.*;
 
 @AllArgsConstructor
@@ -8,6 +9,7 @@ import lombok.*;
 @Setter
 @Data
 @Builder
+@Nullable
 public class FilterAirportsCommandDto {
     private Integer id;
     private String city;
