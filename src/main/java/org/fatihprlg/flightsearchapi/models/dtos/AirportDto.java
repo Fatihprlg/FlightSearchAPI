@@ -7,11 +7,12 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Data
-@NonNull
 @Builder
 public class AirportDto {
     @Setter
+    @NonNull
     private Integer id;
+    @NonNull
     private String city;
 
     public void setCity(String city){

@@ -34,7 +34,7 @@ public class AirportService {
             log.info("Airport with id {} deleted successfully.", id);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -45,7 +45,7 @@ public class AirportService {
             return modelMapper.map(updatedAirport, AirportDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -56,7 +56,7 @@ public class AirportService {
             return modelMapper.map(addedAirport, AirportDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -67,7 +67,7 @@ public class AirportService {
             return modelMapper.map(airport, AirportDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -80,7 +80,7 @@ public class AirportService {
             return allAirports;
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -97,7 +97,7 @@ public class AirportService {
                     .collect(Collectors.toList());
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 }

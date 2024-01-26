@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Service
 public class FlightService {
     private static final Logger log = LoggerFactory.getLogger(AirportService.class);
-
     private final FlightRepository flightRepository;
     private final ModelMapper modelMapper;
 
@@ -33,7 +32,7 @@ public class FlightService {
             return modelMapper.map(flightSavedToDb, FlightDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -43,7 +42,7 @@ public class FlightService {
             log.info("Deleted flight with id {} successfully.", id);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 
@@ -54,7 +53,8 @@ public class FlightService {
             return modelMapper.map(updatedFlight, FlightDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
+
         }
     }
     public FlightDto getFlightById(Integer id){
@@ -64,7 +64,7 @@ public class FlightService {
             return modelMapper.map(foundedFlight, FlightDto.class);
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
     public List<FlightDto> getAllFlights(){
@@ -76,12 +76,11 @@ public class FlightService {
             return allFlights;
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
     public List<FlightDto> getFilteredFlights(FilterFlightsCommandDto flightQuery){
         try {
-
             List<Flight> allFlights = flightRepository.findAll();
             List<Flight> filteredFlights = allFlights.stream()
                     .filter(flight -> (flightQuery.getId() == null || flight.getId().equals(flightQuery.getId())))
@@ -97,7 +96,7 @@ public class FlightService {
                     .collect(Collectors.toList());
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw ex;
+            throw new RuntimeException(ex.getMessage(), ex.getCause());
         }
     }
 }
