@@ -156,14 +156,11 @@ class AirportServiceTests {
         allAirports.add(Airport.builder().id(1).city("London").build());
         allAirports.add(Airport.builder().id(2).city("Paris").build());
 
-        List<Airport> filteredAirports = new ArrayList<>();
-        filteredAirports.add(Airport.builder().id(1).city("London").build());
-
         List<AirportDto> filteredAirportDtos = new ArrayList<>();
         filteredAirportDtos.add(AirportDto.builder().id(1).city("London").build());
 
         when(airportRepository.findAll()).thenReturn(allAirports);
-        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.get(0));
+        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.getFirst());
 
         List<AirportDto> result = airportService.getFilteredAirports(filterQuery);
 
@@ -185,14 +182,11 @@ class AirportServiceTests {
         allAirports.add(Airport.builder().id(1).city("London").build());
         allAirports.add(Airport.builder().id(2).city("Paris").build());
 
-        List<Airport> filteredAirports = new ArrayList<>();
-        filteredAirports.add(Airport.builder().id(1).city("London").build());
-
         List<AirportDto> filteredAirportDtos = new ArrayList<>();
         filteredAirportDtos.add(AirportDto.builder().id(1).city("London").build());
 
         when(airportRepository.findAll()).thenReturn(allAirports);
-        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.get(0));
+        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.getFirst());
 
         List<AirportDto> result = airportService.getFilteredAirports(filterQuery);
 
@@ -215,14 +209,11 @@ class AirportServiceTests {
         allAirports.add(Airport.builder().id(1).city("London").build());
         allAirports.add(Airport.builder().id(2).city("Paris").build());
 
-        List<Airport> filteredAirports = new ArrayList<>();
-        filteredAirports.add(Airport.builder().id(1).city("London").build());
-
         List<AirportDto> filteredAirportDtos = new ArrayList<>();
         filteredAirportDtos.add(AirportDto.builder().id(1).city("London").build());
 
         when(airportRepository.findAll()).thenReturn(allAirports);
-        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.get(0));
+        when(modelMapper.map(any(Airport.class), eq(AirportDto.class))).thenReturn(filteredAirportDtos.getFirst());
 
         List<AirportDto> result = airportService.getFilteredAirports(filterQuery);
 

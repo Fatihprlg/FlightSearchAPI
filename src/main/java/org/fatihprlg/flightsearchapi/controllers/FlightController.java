@@ -20,7 +20,7 @@ public class FlightController {
     }
 
     @PostMapping("/add_flight")
-    public ResponseEntity<FlightDto> addFlight(@RequestBody AddFlightCommandDto flightDto) throws Exception{
+    public ResponseEntity<FlightDto> addFlight(@RequestBody AddFlightCommandDto flightDto){
         FlightDto flight = flightService.addFlight(flightDto);
         return ResponseEntity.ok(flight);
     }
