@@ -38,7 +38,13 @@ public class AirportController {
 
     @GetMapping("get_airport_by_id/{id}")
     public ResponseEntity<AirportDto> getAirportById(@PathVariable("id") Integer id){
-        return ResponseEntity.ok(airportService.getAirportById(id));
+        AirportDto airport = airportService.getAirportById(id);
+        if(airport == null){
+            return ResponseEntity.notFound().build();
+        }
+        else {
+            return ResponseEntity.ok(airport);
+        }
     }
 
     @GetMapping("/get_all_airports")

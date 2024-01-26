@@ -39,7 +39,12 @@ public class FlightController {
 
     @GetMapping("get_flight_by_id/{id}")
     public ResponseEntity<FlightDto> getFlightById(@PathVariable("id") Integer id){
-        return ResponseEntity.ok(flightService.getFlightById(id));
+        FlightDto flight = flightService.getFlightById(id);
+        if(flight == null){
+            return ResponseEntity.notFound().build();
+        }
+        else
+            return ResponseEntity.ok(flight);
     }
 
     @GetMapping("/get_all_flights")
